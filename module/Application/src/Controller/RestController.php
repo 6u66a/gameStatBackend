@@ -10,12 +10,15 @@ namespace Application\Controller;
 
 
 use Zend\Mvc\Controller\AbstractRestfulController;
-use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class RestController extends AbstractRestfulController
 {
-    public function indexAction()
+    public function getList()
     {
-        return new ViewModel();
+        return new JsonModel(array(
+            array('name' => 'test'),
+            array('name' => 'second')
+        ));
     }
 }
