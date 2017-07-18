@@ -41,7 +41,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\RestController::class => InvokableFactory::class,
+            Controller\RestController::class => Controller\DoctrineControllerFactory::class,
             Controller\IndexController::class => InvokableFactory::class,
         ],
     ],

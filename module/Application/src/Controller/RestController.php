@@ -9,16 +9,24 @@
 namespace Application\Controller;
 
 
+use Doctrine\ORM\EntityManager;
+use Entity\User;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel;
 
 class RestController extends AbstractRestfulController
 {
+    private $em;
+
+    public function __construct(EntityManager $em)
+    {
+        $this->em=$em;
+    }
+
     public function getList()
     {
-        return new JsonModel(array(
-            array('name' => 'test'),
-            array('name' => 'second')
-        ));
+        return [
+            'games' => $this->em->getRepository(User::class)->findAll(),
+        ];
     }
 }
