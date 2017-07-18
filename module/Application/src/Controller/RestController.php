@@ -9,10 +9,9 @@
 namespace Application\Controller;
 
 
+use Application\Entity\User;
 use Doctrine\ORM\EntityManager;
-use Entity\User;
 use Zend\Mvc\Controller\AbstractRestfulController;
-use Zend\View\Model\JsonModel;
 
 class RestController extends AbstractRestfulController
 {

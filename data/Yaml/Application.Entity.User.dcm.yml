@@ -1,7 +1,7 @@
-# Entity.User.dcm.yml
-Entity\User:
+# Application.Entity.User.dcm.yml
+Application\Entity\User:
   type: entity
-  repositoryClass: Entity\UserRepository
+  repositoryClass: Application\Entity\UserRepository
   table: cms_users
   schema: schema_name # The schema the table lies in, for platforms that support schemas (Optional, >= 2.5)
   readOnly: true

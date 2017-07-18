@@ -54,7 +54,7 @@ return [
             'orm_default' => [
                 'drivers' => [
                     // register `my_annotation_driver` for any entity under namespace `My\Namespace`
-                    'Entity' => 'my_annotation_driver',
+                    'Application\\Entity' => 'my_annotation_driver',
                 ],
             ],
         ],
