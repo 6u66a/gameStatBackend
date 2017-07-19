@@ -6,7 +6,7 @@
  * Time: 08:57
  */
 
-namespace Application\Controller;
+namespace Entities\Controller;
 
 use Application\Entity\User;
 use Doctrine\ORM\EntityManager;
