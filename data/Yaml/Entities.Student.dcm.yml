@@ -1,8 +1,8 @@
-# Entities.User.dcm.yml
-Entities\User:
+# Entities.Student.dcm.yml
+Entities\Student:
   type: entity
-  repositoryClass: Entities\UserRepository
-  table: cms_users
+  repositoryClass: Entities\StudentRepository
+  table: students
   schema: schema_name # The schema the table lies in, for platforms that support schemas (Optional, >= 2.5)
   readOnly: true
   indexes:
