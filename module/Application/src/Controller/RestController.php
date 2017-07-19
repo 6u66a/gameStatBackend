@@ -8,8 +8,8 @@
 
 namespace Application\Controller;
 
-use Application\Entity\User;
 use Doctrine\ORM\EntityManager;
+use Entities\User;
 use Zend\Mvc\Controller\AbstractRestfulController;
 
 class RestController extends AbstractRestfulController
