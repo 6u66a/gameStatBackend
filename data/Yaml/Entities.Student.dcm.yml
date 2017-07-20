@@ -2,7 +2,7 @@
 Entities\Student:
   type: entity
   repositoryClass: Entities\StudentRepository
-  table: students
+  table: student
   schema: schema_name # The schema the table lies in, for platforms that support schemas (Optional, >= 2.5)
   readOnly: true
   indexes:
@@ -20,41 +20,23 @@ Entities\Student:
     email:
       type: string
       length: 32
-      column: user_email
+      column: student_email
       unique: true
       options:
         fixed: true
-        comment: User's email address
-    loginCount:
-      type: integer
-      column: login_count
-      nullable: false
-      options:
-        unsigned: true
-        default: 0
-  oneToOne:
-    address:
-      targetEntity: Address
-      joinColumn:
-        name: address_id
-        referencedColumnName: id
-        onDelete: CASCADE
-  oneToMany:
-    phonenumbers:
-      targetEntity: Phonenumber
-      mappedBy: user
-      cascade: ["persist", "merge"]
+        comment: Student's email address
   manyToMany:
-    groups:
-      targetEntity: Group
+    grades:
+      targetEntity: Grade
+      inverdesBy: students
       joinTable:
-        name: cms_users_groups
+        name: students_grades
         joinColumns:
-          user_id:
+          student_id:
             referencedColumnName: id
-        inverseJoinColumns:
-          group_id:
-            referencedColumnName: id
+          inverseJoinColumns:
+            grade_id:
+              referencedColumnName: id
   lifecycleCallbacks:
-    prePersist: [ doStuffOnPrePersist, doOtherStuffOnPrePersistToo ]
-    postPersist: [ doStuffOnPostPersist ]
+      prePersist: [ doStuffOnPrePersist, doOtherStuffOnPrePersistToo ]
+      postPersist: [ doStuffOnPostPersist ]

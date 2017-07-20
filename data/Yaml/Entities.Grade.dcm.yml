@@ -1,0 +1,25 @@
+Entities\Grade:
+  type: entity
+  repositoryClass: Entities\GradeRepository
+  table: grade
+  schema: schema_name # The schema the table lies in, for platforms that support schemas (Optional, >= 2.5)
+  readOnly: true
+  indexes:
+    name_index:
+      columns: [ name ]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      length: 50
+  manyToMany:
+    students:
+      targetEntity: Student
+      mappedBy: grades
+  lifecycleCallbacks:
+      prePersist: [ doStuffOnPrePersist, doOtherStuffOnPrePersistToo ]
+      postPersist: [ doStuffOnPostPersist ]
